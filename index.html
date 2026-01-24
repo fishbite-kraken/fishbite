@@ -6,16 +6,17 @@
     <title>FishBite | AI for Better Decisions</title>
     <style>
         :root {
-            --primary: #00d2ff;
-            --bg: #0a0e14;
-            --text: #e0e0e0;
-            --accent: #3a4750;
+            --primary-orange: #FF7F24; /* Orange from goldfish body */
+            --primary-blue: #0047AB;   /* Deep blue from cap */
+            --text-light: #FFFFFF;      /* White from teeth and text */
+            --bg-gradient: linear-gradient(135deg, var(--primary-orange), #FFB347); /* Orange gradient background */
+            --accent-blue: #4169E1;     /* Lighter blue for accents */
         }
 
         body {
             font-family: 'Inter', -apple-system, sans-serif;
-            background-color: var(--bg);
-            color: var(--text);
+            background: var(--bg-gradient);
+            color: var(--text-light);
             margin: 0;
             line-height: 1.6;
         }
@@ -23,19 +24,22 @@
         nav {
             padding: 2rem;
             display: flex;
-            justify-content: space-between;
+            justify-content: center; /* Center the logo */
             align-items: center;
             max-width: 1100px;
             margin: 0 auto;
         }
 
         .logo {
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: var(--primary);
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--primary-blue);
             text-decoration: none;
             letter-spacing: -1px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
         }
+
+        /* Removed the extra privacy link from nav */
 
         .hero {
             height: 80vh;
@@ -50,44 +54,54 @@
         h1 {
             font-size: 4rem;
             margin-bottom: 1rem;
-            background: linear-gradient(to right, #fff, var(--primary));
+            /* Gradient title using orange and blue */
+            background: linear-gradient(to right, var(--text-light), var(--primary-blue));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
         }
 
         p.tagline {
             font-size: 1.25rem;
             max-width: 600px;
-            color: #a0a0a0;
+            color: var(--text-light);
+            opacity: 0.9;
         }
 
         .cta-button {
             margin-top: 2rem;
             padding: 1rem 2.5rem;
-            background-color: var(--primary);
-            color: var(--bg);
+            background-color: var(--primary-blue);
+            color: var(--text-light);
             text-decoration: none;
             font-weight: bold;
-            border-radius: 5px;
-            transition: transform 0.2s ease;
+            border-radius: 30px; /* More rounded for a friendly, bubbly feel */
+            box-shadow: 0 4px 15px rgba(0, 71, 171, 0.4);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
 
         .cta-button:hover {
             transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 210, 255, 0.3);
+            box-shadow: 0 10px 20px rgba(0, 71, 171, 0.6);
         }
 
         footer {
             padding: 4rem 2rem;
             text-align: center;
-            border-top: 1px solid var(--accent);
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
             font-size: 0.9rem;
+            color: var(--text-light);
         }
 
         footer a {
-            color: var(--primary);
+            color: var(--primary-blue);
             text-decoration: none;
             margin: 0 10px;
+            font-weight: bold;
+        }
+        
+        footer a:hover {
+            text-decoration: underline;
         }
 
         .contact-info {
@@ -99,9 +113,6 @@
 
     <nav>
         <a href="/" class="logo">FISHBITE</a>
-        <div class="links">
-            <a href="/privacy" style="color: var(--text); text-decoration: none;">Privacy</a>
-        </div>
     </nav>
 
     <section class="hero">
@@ -116,7 +127,7 @@
             <strong>Web:</strong> www.fishbite.xyz
         </div>
         <p>&copy; 2026 FishBite Tech. All rights reserved.</p>
-        <a href="/privacy">Privacy Policy</a>
+        <a href="/privacy.html">Privacy Policy</a>
     </footer>
 
 </body>
