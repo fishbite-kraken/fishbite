@@ -1,111 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>FishBite Tech</title>
-  <style>
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background: #fafafa;
-      color: #222;
-      margin: 0;
-      padding: 0;
-    }
-    header {
-      background: #0a84ff;
-      color: white;
-      text-align: center;
-      padding: 2rem 1rem;
-    }
-    main {
-      max-width: 800px;
-      margin: 2rem auto;
-      padding: 0 1rem;
-      line-height: 1.6;
-    }
-    footer {
-      text-align: center;
-      font-size: 0.9rem;
-      color: #666;
-      padding: 1rem;
-      border-top: 1px solid #eee;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FishBite | AI for Better Decisions</title>
+    <style>
+        :root {
+            --primary: #00d2ff;
+            --bg: #0a0e14;
+            --text: #e0e0e0;
+            --accent: #3a4750;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        nav {
+            padding: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            text-decoration: none;
+            letter-spacing: -1px;
+        }
+
+        .hero {
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 1rem;
+        }
+
+        h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, #fff, var(--primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        p.tagline {
+            font-size: 1.25rem;
+            max-width: 600px;
+            color: #a0a0a0;
+        }
+
+        .cta-button {
+            margin-top: 2rem;
+            padding: 1rem 2.5rem;
+            background-color: var(--primary);
+            color: var(--bg);
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: transform 0.2s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 210, 255, 0.3);
+        }
+
+        footer {
+            padding: 4rem 2rem;
+            text-align: center;
+            border-top: 1px solid var(--accent);
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: var(--primary);
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        .contact-info {
+            margin-bottom: 1.5rem;
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <h1>FishBite Tech</h1>
-    <p>Innovating intelligent solutions for the modern digital world</p>
-  </header>
 
-<main>
-  <h2>About Us</h2>
-  <p>
-    FishBite Tech is a technology company focused on developing innovative software
-    and intelligent systems for businesses and consumers worldwide. We specialize in
-    app development, AI-driven solutions, and integrated digital experiences.
-  </p>
+    <nav>
+        <a href="/" class="logo">FISHBITE</a>
+        <div class="links">
+            <a href="/privacy" style="color: var(--text); text-decoration: none;">Privacy</a>
+        </div>
+    </nav>
 
-  <h2 id="privacy">Privacy Policy</h2>
-  <p>
-    FishBite Tech respects your privacy. This Privacy Policy explains how we handle
-    information when you use our applications and services.
-  </p>
+    <section class="hero">
+        <h1>Decisions with Teeth.</h1>
+        <p class="tagline">FishBite leverages advanced AI to cut through the noise. Don't just guess—bite into the data that matters.</p>
+        <a href="mailto:kraken@fishbite.xyz" class="cta-button">Contact the Kraken</a>
+    </section>
 
-  <h3>Information Collection</h3>
-  <p>
-    Our apps do not collect or store personally identifiable information directly.
-    Any data collected is limited to what is necessary to provide core functionality
-    and improve user experience.
-  </p>
+    <footer>
+        <div class="contact-info">
+            <strong>Email:</strong> kraken@fishbite.xyz | 
+            <strong>Web:</strong> www.fishbite.xyz
+        </div>
+        <p>&copy; 2026 FishBite Tech. All rights reserved.</p>
+        <a href="/privacy">Privacy Policy</a>
+    </footer>
 
-  <h3>Purchases and Subscriptions</h3>
-  <p>
-    All purchases and subscriptions are processed by Apple through the App Store.
-    FishBite Tech does not have access to users’ payment information, such as credit
-    card details or billing data.
-  </p>
-
-  <h3>Analytics and App Improvement</h3>
-  <p>
-    We may collect anonymous usage data and basic device information for analytics
-    and app performance monitoring purposes. This data is used solely to improve
-    app stability, features, and user experience.
-  </p>
-
-  <h3>Third-Party Services</h3>
-  <p>
-    Our apps may use trusted third-party services for analytics and subscription
-    management. These services process data in accordance with their own privacy
-    policies and applicable laws.
-  </p>
-
-  <h3>Data Sharing</h3>
-  <p>
-    We do not sell, rent, or trade personal data. Information is not shared with
-    third parties except where required to provide app functionality or comply
-    with legal obligations.
-  </p>
-
-  <h3>Contact</h3>
-  <p>
-    If you have any questions about this Privacy Policy, please contact us at:<br>
-    📧 <a href="mailto:kraken@fishbite.xyz">kraken@fishbite.xyz</a>
-  </p>
-
-  <h2>Company Contact</h2>
-  <p>
-    📧 Email: <a href="mailto:kraken@fishbite.xyz">kraken@fishbite.xyz</a><br>
-    🌐 Website: <a href="https://www.fishbite.xyz">www.fishbite.xyz</a>
-  </p>
-</main>
-
-
-  <footer>
-    &copy; 2025 FishBite Tech. All rights reserved.
-  </footer>
 </body>
 </html>
-
-
