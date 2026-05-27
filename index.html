@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FishBite | AI for Better Decisions</title>
+    <style>
+        :root {
+            --primary-orange: #FF7F24; /* Orange from goldfish body */
+            --primary-blue: #0047AB;   /* Deep blue from cap */
+            --text-light: #FFFFFF;      /* White from teeth and text */
+            --bg-gradient: linear-gradient(135deg, var(--primary-orange), #FFB347); /* Orange gradient background */
+            --accent-blue: #4169E1;     /* Lighter blue for accents */
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--bg-gradient);
+            color: var(--text-light);
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        nav {
+            padding: 2rem;
+            display: flex;
+            justify-content: center; /* Center the logo */
+            align-items: center;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--primary-blue);
+            text-decoration: none;
+            letter-spacing: -1px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        /* Removed the extra privacy link from nav */
+
+        .hero {
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 1rem;
+        }
+
+        h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            /* Gradient title using orange and blue */
+            background: linear-gradient(to right, var(--text-light), var(--primary-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+
+        p.tagline {
+            font-size: 1.25rem;
+            max-width: 600px;
+            color: var(--text-light);
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            margin-top: 2rem;
+            padding: 1rem 2.5rem;
+            background-color: var(--primary-blue);
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 30px; /* More rounded for a friendly, bubbly feel */
+            box-shadow: 0 4px 15px rgba(0, 71, 171, 0.4);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 71, 171, 0.6);
+        }
+
+        footer {
+            padding: 4rem 2rem;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        footer a {
+            color: var(--primary-blue);
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: bold;
+        }
+        
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        .contact-info {
+            margin-bottom: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="/" class="logo">FISHBITE</a>
+    </nav>
+
+    <section class="hero">
+        <h1>Decisions with Teeth.</h1>
+        <p class="tagline">FishBite leverages advanced AI to cut through the noise. Don't just guess—bite into the data that matters.</p>
+        <a href="mailto:kraken@fishbite.xyz" class="cta-button">Contact the Kraken</a>
+    </section>
+
+    <footer>
+        <div class="contact-info">
+            <strong>Email:</strong> kraken@fishbite.xyz | 
+            <strong>Web:</strong> www.fishbite.xyz
+        </div>
+        <p>&copy; 2026 FishBite Tech. All rights reserved.</p>
+        <a href="/privacy">Privacy Policy</a>
+    </footer>
+
+</body>
+</html>

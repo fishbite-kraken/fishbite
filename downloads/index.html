@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download FishBite | AI for Better Decisions</title>
+    <style>
+        :root {
+            --primary-orange: #FF7F24; /* Orange from goldfish body */
+            --primary-blue: #0047AB;   /* Deep blue from cap */
+            --text-light: #FFFFFF;      /* White from teeth and text */
+            --bg-gradient: linear-gradient(135deg, var(--primary-orange), #FFB347); /* Orange gradient background */
+            --accent-blue: #4169E1;     /* Lighter blue for accents */
+        }
+
+        * {
+            box-sizing: border-box; /* Prevents padding from breaking layout widths */
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--bg-gradient);
+            color: var(--text-light);
+            margin: 0;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        nav {
+            padding: 2rem;
+            display: flex;
+            justify-content: center; /* Center the logo */
+            align-items: center;
+            max-width: 1100px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--primary-blue);
+            text-decoration: none;
+            letter-spacing: -1px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .hero {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem 1rem;
+        }
+
+        /* Mobile-First Download Container: Stacks vertically to avoid overlap */
+        .download-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            width: 100%;
+            max-width: 290px; /* Fits comfortably inside any mobile browser width */
+            margin: 0 auto;
+        }
+
+        /* Desktop Mode: Switches to a horizontal row layout safely */
+        @media (min-width: 768px) {
+            .download-container {
+                flex-direction: row;
+                max-width: 900px;
+                justify-content: center;
+                gap: 1.5rem;
+            }
+        }
+
+        /* Individual Download Button Styling */
+        .download-button {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 0.8rem 1.6rem;
+            background-color: var(--primary-blue);
+            color: var(--text-light);
+            text-decoration: none;
+            border-radius: 30px;
+            box-shadow: 0 4px 15px rgba(0, 71, 171, 0.4);
+            transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+            text-align: left;
+            width: 100%;
+        }
+
+        @media (min-width: 768px) {
+            .download-button {
+                width: auto;
+                flex: 1;
+                max-width: 260px;
+            }
+        }
+
+        .download-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 71, 171, 0.6);
+            background-color: var(--accent-blue);
+        }
+
+        .download-button svg {
+            width: 26px;
+            height: 26px;
+            fill: currentColor;
+            flex-shrink: 0;
+        }
+
+        .btn-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
+        }
+
+        .btn-text .small-text {
+            font-size: 0.75rem;
+            font-weight: normal;
+            opacity: 0.85;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-text .main-text {
+            font-size: 1.1rem;
+            font-weight: bold;
+            white-space: nowrap; /* Prevents text from breaking into two lines */
+        }
+
+        footer {
+            padding: 4rem 2rem;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        footer a {
+            color: var(--primary-blue);
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: bold;
+        }
+        
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        .contact-info {
+            margin-bottom: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="/" class="logo">FISHBITE</a>
+    </nav>
+
+    <section class="hero">
+        <div class="download-container">
+            <!-- 1. iOS App Store Button -->
+            <a href="https://apps.apple.com/cn/app/fishbite/id6758016282?l=en-GB" class="download-button" target="_blank" rel="noopener">
+                <!-- Apple SVG Icon -->
+                <svg viewBox="0 0 24 24">
+                    <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-.96.04-2.13.64-2.82 1.45-.6.7-1.13 1.84-.99 2.94 1.07.08 2.16-.52 2.82-1.33z"/>
+                </svg>
+                <div class="btn-text">
+                    <span class="small-text">App store</span>
+                    <span class="main-text">iPhone</span>
+                </div>
+            </a>
+
+            <!-- 2. Android Google Play Button -->
+            <a href="#" class="download-button" target="_blank" rel="noopener">
+                <!-- Google Play Store SVG Icon -->
+                <svg viewBox="0 0 24 24">
+                    <path d="M3.609 1.814L13.783 12 3.609 22.186c-.183-.163-.301-.4-.301-.685V2.5c0-.285.118-.522.301-.686zM14.975 13.19l3.103 3.103L5.135 22.25l9.84-9.06zm4.184-2.22l2.645 1.512c.5.286.5.752 0 1.038l-2.645 1.512-3.197-3.197 3.197-3.065zm-4.184-.943L5.135 1.75l12.943 5.957-3.103 3.103z"/>
+                </svg>
+                <div class="btn-text">
+                    <span class="small-text">Google Play</span>
+                    <span class="main-text">Android</span>
+                </div>
+            </a>
+
+            <!-- 3. Android China Only Button -->
+            <a href="app-release.apk" class="download-button" download="FishBite.apk">
+                <!-- Full-Body Android Robot SVG Icon with eye masks -->
+                <svg viewBox="0 0 24 24">
+                    <defs>
+                        <mask id="android-eyes">
+                            <rect width="24" height="24" fill="white" />
+                            <circle cx="10" cy="7.5" r="1" fill="black" />
+                            <circle cx="14" cy="7.5" r="1" fill="black" />
+                        </mask>
+                    </defs>
+                    <g fill="currentColor">
+                        <!-- Antennas -->
+                        <line x1="8" y1="4.5" x2="6" y2="1.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+                        <line x1="16" y1="4.5" x2="18" y2="1.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+                        <!-- Head -->
+                        <path d="M7 8.5a5 5 0 0 1 10 0H7z" mask="url(#android-eyes)"/>
+                        <!-- Body -->
+                        <path d="M7 10h10v6a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2v-6z"/>
+                        <!-- Arms -->
+                        <rect x="4.5" y="10" width="1.8" height="5.5" rx="0.9"/>
+                        <rect x="17.7" y="10" width="1.8" height="5.5" rx="0.9"/>
+                        <!-- Legs -->
+                        <rect x="9" y="18" width="1.8" height="3.5" rx="0.9"/>
+                        <rect x="13.2" y="18" width="1.8" height="3.5" rx="0.9"/>
+                    </g>
+                </svg>
+                <div class="btn-text">
+                    <span class="small-text">中国版</span>
+                    <span class="main-text">Android</span>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="contact-info">
+            <strong>Email:</strong> kraken@fishbite.xyz | 
+            <strong>Web:</strong> www.fishbite.xyz
+        </div>
+        <p>&copy; 2026 FishBite Tech. All rights reserved.</p>
+        <a href="/privacy">Privacy Policy</a>
+    </footer>
+
+</body>
+</html>
