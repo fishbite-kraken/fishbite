@@ -191,7 +191,7 @@
             </a>
 
             <!-- 3. Android China Only Button -->
-            <a href="app-release.apk" class="download-button" download="FishBite.apk">
+            <a href="#" class="download-button" data-china-apk data-china-apk-base="" download="FishBite.apk">
                 <!-- Full-Body Android Robot SVG Icon with eye masks -->
                 <svg viewBox="0 0 24 24">
                     <defs>
@@ -234,5 +234,35 @@
         <a href="/privacy">Privacy Policy</a>
     </footer>
 
+<script>
+        async function resolveChinaApkDownload() {
+            const links = document.querySelectorAll('[data-china-apk]');
+            if (!links.length) return;
+
+            try {
+                const response = await fetch('manifest.json', { cache: 'no-store' });
+                if (!response.ok) throw new Error(`manifest fetch failed: ${response.status}`);
+                const { apk } = await response.json();
+                const apkPath = String(apk || '').trim();
+                if (!apkPath) throw new Error('manifest missing apk field');
+
+                links.forEach((link) => {
+                    const isAbsolutePath = /^(?:[a-z][a-z\d+\-.]*:)?\/\//i.test(apkPath) || apkPath.startsWith('/');
+                    const basePath = link.dataset.chinaApkBase || '';
+                    const normalizedBase = basePath ? basePath.replace(/\/?$/, '/') : '';
+                    const downloadPath = isAbsolutePath ? apkPath : normalizedBase + apkPath.replace(/^\.?\//, '');
+                    const fileName = downloadPath.split(/[?#]/)[0].split('/').filter(Boolean).pop();
+
+                    link.href = downloadPath;
+                    if (fileName) link.download = fileName;
+                });
+            } catch (error) {
+                console.error('Failed to resolve China APK download', error);
+            }
+        }
+
+        resolveChinaApkDownload();
+
+    </script>
 </body>
 </html>
