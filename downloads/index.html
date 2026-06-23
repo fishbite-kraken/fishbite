@@ -244,7 +244,7 @@
 
             chinaApkResolvePromise = (async () => {
                 try {
-                    const response = await fetch('https://fishbite.xyz/app-update/version', { cache: 'no-store' });
+                    const response = await fetch('https://api.fishbite.xyz/app-update/version', { cache: 'no-store' });
                     if (!response.ok) throw new Error(`app update fetch failed: ${response.status}`);
                     const { branch_china_url } = await response.json();
                     const downloadUrl = String(branch_china_url || '').trim();
