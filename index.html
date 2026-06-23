@@ -307,7 +307,7 @@
                 </a>
 
                 <!-- China Android: wide oval -->
-                <a href="#" class="dl-btn" data-china-apk data-china-apk-base="/downloads/">
+                <a href="#" class="dl-btn" data-china-apk data-china-apk-base="http://downloads.fishbite.xyz/downloads/">
                     <svg viewBox="0 0 24 24">
                         <defs>
                             <mask id="android-eyes">
@@ -374,7 +374,7 @@
             if (!links.length) return;
 
             try {
-                const response = await fetch('/downloads/manifest.json', { cache: 'no-store' });
+                const response = await fetch('http://downloads.fishbite.xyz/downloads/manifest.json', { cache: 'no-store' });
                 if (!response.ok) throw new Error(`manifest fetch failed: ${response.status}`);
                 const { apk } = await response.json();
                 const apkPath = String(apk || '').trim();
