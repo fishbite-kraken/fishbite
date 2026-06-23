@@ -57,6 +57,7 @@
             font-size: 4rem;
             margin-bottom: 1rem;
             background: linear-gradient(to right, var(--text-light), var(--primary-blue));
+            background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
@@ -306,7 +307,7 @@
                 </a>
 
                 <!-- China Android: wide oval -->
-                <a href="#" class="dl-btn" data-china-apk data-china-apk-base="/downloads/" download="FishBite.apk">
+                <a href="#" class="dl-btn" data-china-apk data-china-apk-base="/downloads/">
                     <svg viewBox="0 0 24 24">
                         <defs>
                             <mask id="android-eyes">
@@ -368,7 +369,6 @@
             if (e.target === overlay) closeOverlay();
         });
 
-
         async function resolveChinaApkDownload() {
             const links = document.querySelectorAll('[data-china-apk]');
             if (!links.length) return;
@@ -381,10 +381,8 @@
                 if (!apkPath) throw new Error('manifest missing apk field');
 
                 links.forEach((link) => {
-                    const isAbsolutePath = /^(?:[a-z][a-z\d+\-.]*:)?\/\//i.test(apkPath) || apkPath.startsWith('/');
                     const basePath = link.dataset.chinaApkBase || '';
-                    const normalizedBase = basePath ? basePath.replace(/\/?$/, '/') : '';
-                    const downloadPath = isAbsolutePath ? apkPath : normalizedBase + apkPath.replace(/^\.?\//, '');
+                    const downloadPath = basePath.replace(/\/?$/, '/') + apkPath.replace(/^\.?\//, '');
                     const fileName = downloadPath.split(/[?#]/)[0].split('/').filter(Boolean).pop();
 
                     link.href = downloadPath;

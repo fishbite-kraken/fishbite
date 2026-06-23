@@ -191,7 +191,7 @@
             </a>
 
             <!-- 3. Android China Only Button -->
-            <a href="#" class="download-button" data-china-apk data-china-apk-base="" download="FishBite.apk">
+            <a href="#" class="download-button" data-china-apk data-china-apk-base="">
                 <!-- Full-Body Android Robot SVG Icon with eye masks -->
                 <svg viewBox="0 0 24 24">
                     <defs>
@@ -247,10 +247,9 @@
                 if (!apkPath) throw new Error('manifest missing apk field');
 
                 links.forEach((link) => {
-                    const isAbsolutePath = /^(?:[a-z][a-z\d+\-.]*:)?\/\//i.test(apkPath) || apkPath.startsWith('/');
                     const basePath = link.dataset.chinaApkBase || '';
                     const normalizedBase = basePath ? basePath.replace(/\/?$/, '/') : '';
-                    const downloadPath = isAbsolutePath ? apkPath : normalizedBase + apkPath.replace(/^\.?\//, '');
+                    const downloadPath = normalizedBase + apkPath.replace(/^\.?\//, '');
                     const fileName = downloadPath.split(/[?#]/)[0].split('/').filter(Boolean).pop();
 
                     link.href = downloadPath;
