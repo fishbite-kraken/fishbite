@@ -191,7 +191,7 @@
             </a>
 
             <!-- 3. Android China Only Button -->
-            <a class="download-button" data-china-apk data-china-apk-base="http://downloads.fishbite.xyz/downloads/">
+            <a class="download-button" data-china-apk>
                 <!-- Full-Body Android Robot SVG Icon with eye masks -->
                 <svg viewBox="0 0 24 24">
                     <defs>
@@ -235,30 +235,49 @@
     </footer>
 
 <script>
-        async function resolveChinaApkDownload() {
+        let chinaApkResolvePromise;
+
+        function resolveChinaApkDownload() {
             const links = document.querySelectorAll('[data-china-apk]');
-            if (!links.length) return;
+            if (!links.length) return Promise.resolve(false);
+            if (chinaApkResolvePromise) return chinaApkResolvePromise;
 
-            try {
-                const response = await fetch('https://fishbite.xyz/downloads/manifest.json', { cache: 'no-store' });
-                if (!response.ok) throw new Error(`manifest fetch failed: ${response.status}`);
-                const { apk } = await response.json();
-                const apkPath = String(apk || '').trim();
-                if (!apkPath) throw new Error('manifest missing apk field');
+            chinaApkResolvePromise = (async () => {
+                try {
+                    const response = await fetch('https://fishbite.xyz/app-update/version', { cache: 'no-store' });
+                    if (!response.ok) throw new Error(`app update fetch failed: ${response.status}`);
+                    const { branch_china_url } = await response.json();
+                    const downloadUrl = String(branch_china_url || '').trim();
+                    if (!downloadUrl) throw new Error('app update missing branch_china_url field');
 
-                links.forEach((link) => {
-                    const basePath = link.dataset.chinaApkBase || '';
-                    const normalizedBase = basePath ? basePath.replace(/\/?$/, '/') : '';
-                    const downloadPath = normalizedBase + apkPath.replace(/^\.?\//, '');
-                    const fileName = downloadPath.split(/[?#]/)[0].split('/').filter(Boolean).pop();
+                    links.forEach((link) => {
+                        const fileName = downloadUrl.split(/[?#]/)[0].split('/').filter(Boolean).pop();
 
-                    link.href = downloadPath;
-                    if (fileName) link.download = fileName;
-                });
-            } catch (error) {
-                console.error('Failed to resolve China APK download', error);
-            }
+                        link.href = downloadUrl;
+                        if (fileName) link.download = fileName;
+                    });
+                    return true;
+                } catch (error) {
+                    console.error('Failed to resolve China APK download', error);
+                    chinaApkResolvePromise = undefined;
+                    return false;
+                }
+            })();
+
+            return chinaApkResolvePromise;
         }
+
+        document.querySelectorAll('[data-china-apk]').forEach((link) => {
+            link.addEventListener('click', async (event) => {
+                if (link.getAttribute('href')) return;
+                event.preventDefault();
+
+                const resolved = await resolveChinaApkDownload();
+                if (resolved && link.href) {
+                    window.location.href = link.href;
+                }
+            });
+        });
 
         resolveChinaApkDownload();
 
