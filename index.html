@@ -3,7 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FishBite | AI for Better Decisions</title>
+    <title>FishBite | Your AI Poker Companion</title>
+    <meta name="description" content="FishBite is your AI poker companion for Texas Hold'em. Go beyond GTO and Solver thinking with clear, easy-to-understand decisions for real multi-way and super-deep play.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary-orange: #FF7F24;
@@ -11,6 +15,8 @@
             --text-light: #FFFFFF;
             --bg-gradient: linear-gradient(135deg, var(--primary-orange), #FFB347);
             --accent-blue: #4169E1;
+            --font-display: "Fraunces", Georgia, serif;
+            --font-body: "Outfit", -apple-system, BlinkMacSystemFont, sans-serif;
         }
 
         * {
@@ -18,11 +24,11 @@
         }
 
         body {
-            font-family: 'Inter', -apple-system, sans-serif;
+            font-family: var(--font-body);
             background: var(--bg-gradient);
             color: var(--text-light);
             margin: 0;
-            line-height: 1.6;
+            line-height: 1.65;
         }
 
         nav {
@@ -35,27 +41,36 @@
         }
 
         .logo {
+            font-family: var(--font-display);
             font-size: 2rem;
-            font-weight: 900;
+            font-weight: 700;
             color: var(--primary-blue);
             text-decoration: none;
-            letter-spacing: -1px;
+            letter-spacing: -0.5px;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
         }
 
         .hero {
-            height: 80vh;
+            min-height: 72vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 0 1rem;
+            padding: 2rem 1.25rem 3rem;
+        }
+
+        h1, h2, h3 {
+            font-family: var(--font-display);
+            font-weight: 600;
+            letter-spacing: -0.03em;
+            line-height: 1.15;
         }
 
         h1 {
-            font-size: 4rem;
-            margin-bottom: 1rem;
+            font-size: clamp(2.35rem, 5.6vw, 3.8rem);
+            margin: 0 0 1.25rem;
+            max-width: 11em;
             background: linear-gradient(to right, var(--text-light), var(--primary-blue));
             background-clip: text;
             -webkit-background-clip: text;
@@ -63,11 +78,19 @@
             text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
         }
 
+        .hero-lead {
+            font-size: 1.35rem;
+            font-weight: 500;
+            max-width: 640px;
+            margin: 0 0 1rem;
+        }
+
         p.tagline {
-            font-size: 1.25rem;
-            max-width: 600px;
+            font-size: 1.1rem;
+            max-width: 640px;
             color: var(--text-light);
-            opacity: 0.9;
+            opacity: 0.92;
+            margin: 0;
         }
 
         .cta-button {
@@ -76,7 +99,7 @@
             background-color: var(--primary-blue);
             color: var(--text-light);
             text-decoration: none;
-            font-weight: bold;
+            font-weight: 600;
             border: none;
             border-radius: 30px;
             box-shadow: 0 4px 15px rgba(0, 71, 171, 0.4);
@@ -89,6 +112,60 @@
         .cta-button:hover {
             transform: translateY(-3px);
             box-shadow: 0 10px 20px rgba(0, 71, 171, 0.6);
+        }
+
+        .features {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 1.25rem 4rem;
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1.25rem;
+        }
+
+        .feature {
+            background: rgba(255, 255, 255, 0.16);
+            border: 1px solid rgba(255, 255, 255, 0.28);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 1.75rem 1.6rem;
+        }
+
+        .feature.wide {
+            grid-column: 1 / -1;
+        }
+
+        .feature h2 {
+            font-size: 1.55rem;
+            margin: 0 0 0.7rem;
+            color: var(--primary-blue);
+        }
+
+        .feature p {
+            margin: 0 0 0.75rem;
+            opacity: 0.95;
+        }
+
+        .feature p:last-child {
+            margin-bottom: 0;
+        }
+
+        .closing {
+            text-align: center;
+            max-width: 720px;
+            margin: 0 auto 4rem;
+            padding: 0 1.25rem;
+        }
+
+        .closing h2 {
+            font-size: clamp(1.8rem, 4vw, 2.6rem);
+            margin: 0 0 1rem;
+        }
+
+        .closing p {
+            font-size: 1.15rem;
+            margin: 0;
+            opacity: 0.92;
         }
 
         /* Download overlay */
@@ -218,7 +295,7 @@
 
         .dl-btn .small-text {
             font-size: 0.7rem;
-            font-weight: normal;
+            font-weight: 500;
             opacity: 0.85;
             text-transform: uppercase;
             letter-spacing: 0.5px;
@@ -226,7 +303,7 @@
 
         .dl-btn .main-text {
             font-size: 1rem;
-            font-weight: bold;
+            font-weight: 700;
             white-space: nowrap;
         }
 
@@ -242,7 +319,7 @@
             color: var(--primary-blue);
             text-decoration: none;
             margin: 0 10px;
-            font-weight: bold;
+            font-weight: 700;
         }
 
         footer a:hover {
@@ -253,9 +330,20 @@
             margin-bottom: 1.5rem;
         }
 
+        @media (max-width: 720px) {
+            .features {
+                grid-template-columns: 1fr;
+            }
+        }
+
         @media (max-width: 480px) {
-            h1 {
-                font-size: 2.5rem;
+            nav {
+                padding: 1.5rem 1rem;
+            }
+
+            .hero {
+                min-height: auto;
+                padding-top: 1rem;
             }
         }
     </style>
@@ -267,9 +355,48 @@
     </nav>
 
     <section class="hero">
-        <h1>Decisions with Teeth.</h1>
-        <p class="tagline">FishBite leverages advanced AI to cut through the noise. Don't just guess—bite into the data that matters.</p>
+        <h1>Understand the hand.<br>Understand the strategy.<br>Make better decisions.</h1>
+        <p class="hero-lead">FishBite is your AI poker companion for Texas Hold’em.</p>
+        <p class="tagline">Go beyond traditional GTO and Solver thinking. FishBite uses AI to understand the whole hand, the game context, and the players involved—turning complex poker strategy into clear, easy-to-understand decisions.</p>
         <button type="button" class="cta-button" id="download-btn">Download</button>
+    </section>
+
+    <section class="features">
+        <article class="feature">
+            <h2>Beyond GTO</h2>
+            <p>GTO and Solvers are powerful foundations for poker strategy, but real games are more complex than theoretical solutions.</p>
+            <p>FishBite goes beyond fixed theoretical outputs, using the context of the actual hand to help you understand when to follow theory and when the situation calls for a different approach.</p>
+        </article>
+
+        <article class="feature">
+            <h2>Your AI poker companion</h2>
+            <p>You don't need to study complex Solver outputs or decode strategy charts.</p>
+            <p>FishBite turns advanced poker analysis into clear, actionable recommendations—so you can understand not only what to do, but why.</p>
+        </article>
+
+        <article class="feature">
+            <h2>Real multi-way poker, done right</h2>
+            <p>Most tools focus on heads-up play. FishBite analyzes 3+ players at once, capturing real multi-way dynamics such as shared blockers and crowding effects.</p>
+            <p>Multi-way poker isn't heads-up strategy with more players. FishBite is built to understand the difference.</p>
+        </article>
+
+        <article class="feature">
+            <h2>Built for super deep stacks</h2>
+            <p>Designed for up to 2000BB and high-SPR situations, FishBite handles super-deep stacks and complex multi-street strategies.</p>
+            <p>As stacks get deeper, decisions become more complex. FishBite adapts its analysis to the changing geometry of the hand.</p>
+        </article>
+
+        <article class="feature wide">
+            <h2>Built for real play</h2>
+            <p>Different opponents, stack depths, positions, and game situations call for different strategies.</p>
+            <p>FishBite makes advanced poker analysis easier to understand—and complex decisions easier to execute.</p>
+        </article>
+    </section>
+
+    <section class="closing">
+        <h2>Understand the hand.<br>Understand the strategy.<br>Make better decisions.</h2>
+        <p>FishBite — your AI poker companion for Texas Hold’em.</p>
+        <button type="button" class="cta-button" id="download-btn-bottom">Download</button>
     </section>
 
     <div class="download-overlay" id="download-overlay" aria-hidden="true">
@@ -363,6 +490,8 @@
         }
 
         downloadBtn.addEventListener('click', openOverlay);
+        const downloadBtnBottom = document.getElementById('download-btn-bottom');
+        if (downloadBtnBottom) downloadBtnBottom.addEventListener('click', openOverlay);
         closeBtn.addEventListener('click', closeOverlay);
 
         overlay.addEventListener('click', (e) => {
