@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FishBite | The hand the chart left out</title>
-    <meta name="description" content="FishBite reads the Texas Hold'em hand in your seat—multi-way, super-deep, past the average chart—and names the move, the reason, and the moment worth keeping.">
+    <meta name="description" content="FishBite is a next-generation Texas Hold'em decision engine: more spots, readable answers, stacks up to 2000BB, hands you can keep and share, and a place to test the read only you felt.">
     <meta name="theme-color" content="#0e2a20">
     <link rel="icon" href="/splash.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -127,18 +127,6 @@
             color: var(--cream-dim);
         }
 
-        .keep {
-            margin: 1.15rem auto 0;
-            max-width: 34rem;
-            padding-left: 0.9rem;
-            border-left: 2px solid rgba(240, 195, 106, 0.75);
-            font-family: var(--font-display);
-            font-size: 1.18rem;
-            line-height: 1.45;
-            color: #f3e4c4;
-            text-align: left;
-        }
-
         .cta-button {
             margin-top: 1.6rem;
             padding: 0.95rem 1.7rem;
@@ -162,13 +150,11 @@
         }
 
         .scene {
-            margin-top: 0.25rem;
-            display: grid;
-            grid-template-columns: minmax(0, 1fr) 300px minmax(0, 1fr);
-            align-items: end;
-            gap: 0.35rem;
+            margin: 0.4rem auto 0;
+            max-width: 420px;
             position: relative;
-            min-height: 320px;
+            display: flex;
+            justify-content: center;
         }
 
         .scene::before {
@@ -176,37 +162,25 @@
             position: absolute;
             left: 8%;
             right: 8%;
-            bottom: 4%;
-            height: 58%;
+            bottom: 6%;
+            height: 42%;
             border-radius: 50%;
             background:
-                radial-gradient(ellipse at center, rgba(255, 186, 110, 0.14), rgba(255, 255, 255, 0.04) 42%, transparent 70%);
+                radial-gradient(ellipse at center, rgba(255, 186, 110, 0.16), rgba(255, 255, 255, 0.04) 46%, transparent 72%);
             box-shadow: inset 0 0 0 1px rgba(246, 241, 230, 0.1);
             z-index: 0;
         }
 
         .scene .mascot {
-            width: 300px;
-            max-width: 100%;
+            width: min(300px, 72vw);
             height: auto;
-            justify-self: center;
             position: relative;
-            z-index: 2;
-            margin-bottom: -18px;
+            z-index: 1;
             filter:
                 drop-shadow(0 22px 16px rgba(0, 0, 0, 0.42))
                 drop-shadow(0 0 26px rgba(255, 140, 50, 0.22));
         }
 
-        .chart,
-        .verdict {
-            position: relative;
-            z-index: 1;
-            padding-bottom: 1.6rem;
-        }
-
-        .chart svg,
-        .verdict svg,
         .feature-art svg {
             width: 100%;
             height: auto;
@@ -216,7 +190,7 @@
         .features {
             max-width: 1040px;
             margin: 0 auto;
-            padding: 1.5rem 1.5rem 2rem;
+            padding: 1.5rem 1.5rem 4rem;
         }
 
         .feature {
@@ -270,20 +244,6 @@
             max-width: 38rem;
             color: var(--cream-dim);
             font-size: 1.05rem;
-        }
-
-        .close {
-            max-width: 720px;
-            margin: 0 auto;
-            padding: 1rem 1.5rem 4rem;
-            text-align: center;
-        }
-
-        .close h2 {
-            margin: 0 auto 0.4rem;
-            max-width: 12em;
-            font-size: clamp(2rem, 4vw, 2.8rem);
-            text-wrap: balance;
         }
 
         .download-overlay {
@@ -444,21 +404,7 @@
         }
 
         @media (max-width: 860px) {
-            .scene {
-                grid-template-columns: 1fr 1fr;
-                grid-template-areas:
-                    "fish fish"
-                    "chart verdict";
-                justify-items: center;
-                margin-top: 0.4rem;
-            }
-            .scene .mascot {
-                grid-area: fish;
-                width: min(220px, 58vw);
-                margin: 0 auto 0.2rem;
-            }
-            .chart { grid-area: chart; width: 100%; padding-bottom: 0.4rem; }
-            .verdict { grid-area: verdict; width: 100%; padding-bottom: 0.4rem; }
+            .scene .mascot { width: min(240px, 64vw); }
             .feature,
             .feature:nth-child(even) .feature-art {
                 grid-template-columns: 1fr;
@@ -470,7 +416,7 @@
 
         @media (max-width: 480px) {
             .logo img { height: 60px; }
-            .scene .mascot { width: min(200px, 56vw); }
+            .scene .mascot { width: min(210px, 62vw); }
         }
 
         @media (prefers-reduced-motion: reduce) {
@@ -494,228 +440,137 @@
             <div class="hero-copy">
                 <p class="eyebrow">Texas Hold’em</p>
                 <h1>The chart never sat in <em>your</em> seat.</h1>
-                <p class="tagline">A crowded pot. A stack deep enough to change the street. FishBite reads the hand you actually hold and names the move, with the reason still attached.</p>
-                <p class="keep">Save the one you keep seeing. Memorize the street. Share the moment the table went quiet.</p>
+                <p class="tagline">A next-generation decision engine for the spots a chart leaves unfinished—readable, deep, and ready when the hand is worth keeping.</p>
                 <button type="button" class="cta-button" data-download>Download</button>
             </div>
 
-            <div class="scene" role="img" aria-label="A flat strategy chart sits on one side of the FishBite mascot. On the other, one action is lit: the move for this hand, with the reason attached.">
-                <div class="chart">
-                    <svg viewBox="0 0 360 220" aria-hidden="true">
-                        <text x="180" y="28" text-anchor="middle" fill="#d5e0d6" font-family="Outfit, sans-serif" font-size="13" letter-spacing="2.4">THE AVERAGE HAND</text>
-                        <g fill="rgba(246,241,230,0.16)">
-                            <rect x="48" y="78" width="28" height="78" rx="8"/>
-                            <rect x="86" y="70" width="28" height="86" rx="8"/>
-                            <rect x="124" y="74" width="28" height="82" rx="8"/>
-                            <rect x="162" y="68" width="28" height="88" rx="8"/>
-                            <rect x="200" y="76" width="28" height="80" rx="8"/>
-                        </g>
-                        <rect x="246" y="48" width="28" height="108" rx="8" fill="#ff8c32"/>
-                        <path d="M232 92c18-28 28-28 46 6" fill="none" stroke="#f0c36a" stroke-width="2" stroke-linecap="round"/>
-                        <text x="180" y="196" text-anchor="middle" fill="#f0c36a" font-family="Fraunces, Georgia, serif" font-size="18">until your seat</text>
-                    </svg>
-                </div>
-                <img class="mascot" src="/splash.png" alt="">
-                <div class="verdict">
-                    <svg viewBox="0 0 360 220" aria-hidden="true">
-                        <text x="180" y="28" text-anchor="middle" fill="#f0c36a" font-family="Outfit, sans-serif" font-size="13" letter-spacing="2.4">THIS HAND</text>
-                        <g fill="rgba(246,241,230,0.05)" stroke="rgba(246,241,230,0.55)" stroke-width="1.4">
-                            <rect x="78" y="48" width="46" height="64" rx="7" transform="rotate(-10 101 80)"/>
-                            <rect x="132" y="44" width="46" height="64" rx="7"/>
-                            <rect x="186" y="48" width="46" height="64" rx="7" transform="rotate(8 209 80)"/>
-                        </g>
-                        <text x="96" y="88" text-anchor="middle" fill="#e7efe8" font-family="Georgia, serif" font-size="22" transform="rotate(-10 96 84)">♠</text>
-                        <text x="155" y="86" text-anchor="middle" fill="#ff8c32" font-family="Georgia, serif" font-size="22">♥</text>
-                        <text x="214" y="90" text-anchor="middle" fill="#8eb6ff" font-family="Georgia, serif" font-size="22" transform="rotate(8 214 86)">♦</text>
-                        <g font-family="Outfit, sans-serif" font-size="13" font-weight="700">
-                            <rect x="36" y="132" width="78" height="32" rx="16" fill="none" stroke="rgba(246,241,230,0.35)"/>
-                            <text x="75" y="153" text-anchor="middle" fill="rgba(246,241,230,0.62)">FOLD</text>
-                            <rect x="126" y="132" width="78" height="32" rx="16" fill="none" stroke="rgba(246,241,230,0.35)"/>
-                            <text x="165" y="153" text-anchor="middle" fill="rgba(246,241,230,0.62)">CALL</text>
-                            <rect x="216" y="126" width="108" height="42" rx="21" fill="#ff8c32"/>
-                            <text x="270" y="152" text-anchor="middle" fill="#1a1208">RAISE</text>
-                        </g>
-                        <text x="270" y="192" text-anchor="middle" fill="#f0c36a" font-family="Fraunces, Georgia, serif" font-size="16">and why</text>
-                    </svg>
-                </div>
+            <div class="scene">
+                <img class="mascot" src="/splash.png" alt="FishBite mascot, an AI goldfish in a blue cap">
             </div>
         </section>
 
         <section class="features" aria-label="What FishBite does">
             <article class="feature">
                 <div class="feature-art">
-                    <svg viewBox="0 0 480 300" aria-hidden="true">
-                        <rect x="28" y="36" width="190" height="210" rx="18" fill="none" stroke="rgba(246,241,230,0.28)" stroke-width="1.5"/>
-                        <g fill="rgba(246,241,230,0.18)">
-                            <rect x="52" y="128" width="18" height="78" rx="6"/>
-                            <rect x="80" y="120" width="18" height="86" rx="6"/>
-                            <rect x="108" y="124" width="18" height="82" rx="6"/>
-                            <rect x="136" y="118" width="18" height="88" rx="6"/>
-                            <rect x="164" y="126" width="18" height="80" rx="6"/>
+                    <svg viewBox="0 0 480 280" aria-hidden="true">
+                        <g fill="none" stroke="rgba(246,241,230,0.28)" stroke-width="1.4">
+                            <rect x="36" y="78" width="54" height="40" rx="8"/>
+                            <rect x="100" y="78" width="54" height="40" rx="8"/>
+                            <rect x="68" y="130" width="54" height="40" rx="8"/>
                         </g>
-                        <text x="123" y="78" text-anchor="middle" fill="rgba(213,224,214,0.8)" font-family="Outfit, sans-serif" font-size="13" letter-spacing="1.8">THE CHART</text>
-                        <path d="M214 150c28-46 48-18 70 8" fill="none" stroke="#f0c36a" stroke-width="2.2" stroke-linecap="round"/>
-                        <circle cx="292" cy="156" r="7" fill="#f0c36a"/>
-                        <ellipse cx="372" cy="176" rx="70" ry="26" fill="rgba(246,241,230,0.04)" stroke="rgba(246,241,230,0.4)"/>
-                        <circle cx="372" cy="104" r="15" fill="none" stroke="#ff8c32" stroke-width="2"/>
-                        <path d="M346 128c8 16 44 16 52 0" fill="none" stroke="#ff8c32" stroke-width="2" stroke-linecap="round"/>
-                        <rect x="348" y="214" width="48" height="26" rx="13" fill="#ff8c32"/>
-                        <text x="372" y="232" text-anchor="middle" fill="#1a1208" font-family="Outfit, sans-serif" font-size="12" font-weight="700">MOVE</text>
-                        <text x="372" y="268" text-anchor="middle" fill="#f0c36a" font-family="Fraunces, Georgia, serif" font-size="16">your seat</text>
+                        <text x="95" y="206" text-anchor="middle" fill="#d5e0d6" font-family="Outfit, sans-serif" font-size="13" letter-spacing="1.5">FEWER SPOTS</text>
+                        <path d="M176 124h52" fill="none" stroke="#f0c36a" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M216 116l14 8-14 8" fill="none" stroke="#f0c36a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <g fill="rgba(255,140,50,0.1)" stroke="#f0c36a" stroke-width="1.4">
+                            <rect x="268" y="46" width="48" height="34" rx="7"/>
+                            <rect x="324" y="46" width="48" height="34" rx="7"/>
+                            <rect x="380" y="46" width="48" height="34" rx="7"/>
+                            <rect x="296" y="90" width="48" height="34" rx="7"/>
+                            <rect x="352" y="90" width="48" height="34" rx="7"/>
+                        </g>
+                        <rect x="286" y="146" width="156" height="72" rx="14" fill="rgba(246,241,230,0.05)" stroke="#ff8c32" stroke-width="1.6"/>
+                        <path d="M308 172h112M308 190h78" fill="none" stroke="#f6f1e6" stroke-width="2" stroke-linecap="round"/>
+                        <text x="364" y="248" text-anchor="middle" fill="#f0c36a" font-family="Outfit, sans-serif" font-size="13" letter-spacing="1.5">MORE SPOTS, PLAIN TO READ</text>
                     </svg>
                 </div>
                 <div class="feature-copy">
                     <p class="kicker">Beyond GTO</p>
-                    <h2>When the chart and the table part ways</h2>
-                    <p>Solvers draw the average line. FishBite stays with the hand in your seat and shows where that line still holds, and where this table asks for something else.</p>
+                    <h2>The next engine covers more of the table</h2>
+                    <p>FishBite’s decision engine is the next generation. It reaches spots the usual chart never drew, and it says the answer in words you can read at the table.</p>
                 </div>
             </article>
 
             <article class="feature">
                 <div class="feature-art">
-                    <svg viewBox="0 0 480 300" aria-hidden="true">
-                        <ellipse cx="240" cy="156" rx="132" ry="62" fill="rgba(246,241,230,0.04)" stroke="rgba(246,241,230,0.38)" stroke-width="1.6"/>
-                        <ellipse cx="240" cy="156" rx="86" ry="36" fill="none" stroke="rgba(246,241,230,0.12)"/>
-                        <g fill="rgba(246,241,230,0.05)" stroke="rgba(246,241,230,0.6)" stroke-width="1.3">
-                            <rect x="196" y="128" width="28" height="40" rx="4" transform="rotate(-8 210 148)"/>
-                            <rect x="222" y="126" width="28" height="40" rx="4"/>
-                            <rect x="246" y="128" width="28" height="40" rx="4" transform="rotate(7 260 148)"/>
+                    <svg viewBox="0 0 480 280" aria-hidden="true">
+                        <g fill="rgba(246,241,230,0.05)" stroke="rgba(246,241,230,0.4)" stroke-width="1.4">
+                            <ellipse cx="118" cy="176" rx="34" ry="11"/>
+                            <ellipse cx="118" cy="164" rx="34" ry="11"/>
+                            <ellipse cx="118" cy="152" rx="34" ry="11"/>
                         </g>
-                        <g font-family="Georgia, serif" font-size="14">
-                            <text x="206" y="154" fill="#e7efe8" transform="rotate(-8 206 150)">♠</text>
-                            <text x="230" y="152" fill="#ff8c32">♥</text>
-                            <text x="258" y="156" fill="#8eb6ff" transform="rotate(7 258 152)">♦</text>
-                        </g>
-                        <g fill="none" stroke="#f0c36a" stroke-width="1.6">
-                            <path d="M240 78v36"/>
-                            <path d="M92 150c46 8 70 8 100 6"/>
-                            <path d="M388 168c-46 0-78-4-108-8"/>
-                            <path d="M168 236c22-28 46-36 72-40"/>
-                            <path d="M312 236c-22-28-46-36-72-40"/>
-                        </g>
-                        <g>
-                            <circle cx="240" cy="64" r="16" fill="#ff8c32"/>
-                            <circle cx="78" cy="148" r="16" fill="#ff8c32"/>
-                            <circle cx="402" cy="168" r="16" fill="rgba(246,241,230,0.08)" stroke="rgba(246,241,230,0.45)"/>
-                            <circle cx="156" cy="248" r="16" fill="#ff8c32"/>
-                            <circle cx="324" cy="248" r="16" fill="rgba(246,241,230,0.08)" stroke="rgba(246,241,230,0.45)"/>
-                        </g>
-                        <text x="240" y="286" text-anchor="middle" fill="#f0c36a" font-family="Fraunces, Georgia, serif" font-size="16">one board, several still in</text>
-                    </svg>
-                </div>
-                <div class="feature-copy">
-                    <p class="kicker">Multi-way</p>
-                    <h2>More than two players on one board</h2>
-                    <p>Built for three players and more. Shared blockers, a crowded pot, pressure from every seat still in the hand.</p>
-                </div>
-            </article>
-
-            <article class="feature">
-                <div class="feature-art">
-                    <svg viewBox="0 0 480 300" aria-hidden="true">
-                        <g fill="rgba(246,241,230,0.05)" stroke="rgba(246,241,230,0.45)" stroke-width="1.4">
-                            <ellipse cx="86" cy="176" rx="32" ry="10"/>
-                            <ellipse cx="86" cy="164" rx="32" ry="10"/>
-                            <ellipse cx="86" cy="152" rx="32" ry="10"/>
-                            <ellipse cx="86" cy="140" rx="32" ry="10"/>
-                        </g>
+                        <text x="118" y="210" text-anchor="middle" fill="#d5e0d6" font-family="Outfit, sans-serif" font-size="13" letter-spacing="1.4">STANDARD</text>
                         <g fill="rgba(255,140,50,0.12)" stroke="#f0c36a" stroke-width="1.4">
-                            <ellipse cx="188" cy="188" rx="38" ry="11"/>
-                            <ellipse cx="188" cy="176" rx="38" ry="11"/>
-                            <ellipse cx="188" cy="164" rx="38" ry="11"/>
-                            <ellipse cx="188" cy="152" rx="38" ry="11"/>
-                            <ellipse cx="188" cy="140" rx="38" ry="11"/>
-                            <ellipse cx="188" cy="128" rx="38" ry="11"/>
-                            <ellipse cx="188" cy="116" rx="38" ry="11"/>
-                            <ellipse cx="188" cy="104" rx="38" ry="11"/>
-                            <ellipse cx="188" cy="92" rx="38" ry="11"/>
-                            <ellipse cx="188" cy="80" rx="38" ry="11" fill="#ff8c32" stroke="#ff8c32"/>
+                            <ellipse cx="300" cy="188" rx="42" ry="12"/>
+                            <ellipse cx="300" cy="176" rx="42" ry="12"/>
+                            <ellipse cx="300" cy="164" rx="42" ry="12"/>
+                            <ellipse cx="300" cy="152" rx="42" ry="12"/>
+                            <ellipse cx="300" cy="140" rx="42" ry="12"/>
+                            <ellipse cx="300" cy="128" rx="42" ry="12"/>
+                            <ellipse cx="300" cy="116" rx="42" ry="12"/>
+                            <ellipse cx="300" cy="104" rx="42" ry="12"/>
+                            <ellipse cx="300" cy="92" rx="42" ry="12"/>
+                            <ellipse cx="300" cy="80" rx="42" ry="12" fill="#ff8c32" stroke="#ff8c32"/>
                         </g>
-                        <text x="188" y="48" text-anchor="middle" fill="#f0c36a" font-family="Fraunces, Georgia, serif" font-size="16">2000BB</text>
-                        <path d="M270 168h170" fill="none" stroke="rgba(246,241,230,0.28)" stroke-width="1.5"/>
-                        <circle cx="286" cy="168" r="6" fill="rgba(246,241,230,0.45)"/>
-                        <circle cx="356" cy="168" r="6" fill="rgba(246,241,230,0.45)"/>
-                        <circle cx="428" cy="168" r="10" fill="#ff8c32"/>
-                        <text x="286" y="196" text-anchor="middle" fill="#d5e0d6" font-family="Outfit, sans-serif" font-size="12" letter-spacing="1.4">FLOP</text>
-                        <text x="356" y="196" text-anchor="middle" fill="#d5e0d6" font-family="Outfit, sans-serif" font-size="12" letter-spacing="1.4">TURN</text>
-                        <text x="428" y="200" text-anchor="middle" fill="#f0c36a" font-family="Outfit, sans-serif" font-size="12" letter-spacing="1.4">RIVER</text>
+                        <text x="300" y="52" text-anchor="middle" fill="#f0c36a" font-family="Fraunces, Georgia, serif" font-size="20">2000BB</text>
+                        <text x="300" y="228" text-anchor="middle" fill="#f0c36a" font-family="Outfit, sans-serif" font-size="13" letter-spacing="1.4">OFF THE USUAL DEPTH</text>
                     </svg>
                 </div>
                 <div class="feature-copy">
-                    <p class="kicker">Super deep</p>
-                    <h2>Stacks tall enough to rewrite the street</h2>
-                    <p>Up to 2000BB, and the high-SPR spots where a size on the turn still has a river waiting behind it.</p>
+                    <p class="kicker">Deep stack optimized</p>
+                    <h2>Up to 2000BB, including the odd stacks</h2>
+                    <p>The engine is built for deep play. It holds together through 2000BB, and through the nonstandard depths a normal solve never practiced.</p>
                 </div>
             </article>
 
             <article class="feature">
                 <div class="feature-art">
-                    <svg viewBox="0 0 480 300" aria-hidden="true">
-                        <g fill="none" stroke="rgba(246,241,230,0.4)" stroke-width="1.5">
-                            <circle cx="90" cy="78" r="16"/>
-                            <path d="M66 118c8-16 40-16 48 0"/>
-                            <circle cx="240" cy="78" r="16"/>
-                            <path d="M216 118c8-16 40-16 48 0"/>
-                            <circle cx="390" cy="70" r="18" stroke="#ff8c32" stroke-width="2"/>
-                            <path d="M362 114c10-18 46-18 56 0" stroke="#ff8c32"/>
+                    <svg viewBox="0 0 480 280" aria-hidden="true">
+                        <rect x="48" y="42" width="168" height="196" rx="16" fill="rgba(246,241,230,0.04)" stroke="rgba(246,241,230,0.5)" stroke-width="1.5"/>
+                        <path d="M48 78h168" stroke="rgba(246,241,230,0.28)"/>
+                        <circle cx="132" cy="60" r="7" fill="#ff8c32"/>
+                        <g fill="none" stroke="#f0c36a" stroke-width="1.5">
+                            <rect x="72" y="100" width="22" height="32" rx="4"/>
+                            <rect x="100" y="100" width="22" height="32" rx="4"/>
+                            <rect x="128" y="100" width="22" height="32" rx="4"/>
+                            <rect x="156" y="100" width="22" height="32" rx="4"/>
                         </g>
-                        <g fill="rgba(246,241,230,0.14)">
-                            <rect x="74" y="176" width="32" height="36" rx="8"/>
-                            <rect x="224" y="154" width="32" height="58" rx="8"/>
+                        <path d="M74 162h116M74 182h88M74 202h70" fill="none" stroke="rgba(246,241,230,0.55)" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M236 132c40-24 70-22 104-4" fill="none" stroke="#f0c36a" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M326 116l16 14-20 1" fill="none" stroke="#f0c36a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <rect x="332" y="96" width="112" height="88" rx="14" fill="rgba(255,140,50,0.08)" stroke="#ff8c32" stroke-width="1.5"/>
+                        <g fill="none" stroke="#f0c36a" stroke-width="1.4">
+                            <rect x="354" y="116" width="16" height="24" rx="3"/>
+                            <rect x="376" y="116" width="16" height="24" rx="3"/>
+                            <rect x="398" y="116" width="16" height="24" rx="3"/>
                         </g>
-                        <rect x="374" y="132" width="32" height="80" rx="8" fill="#ff8c32"/>
-                        <text x="90" y="236" text-anchor="middle" fill="#d5e0d6" font-family="Outfit, sans-serif" font-size="13" letter-spacing="1.5">UTG</text>
-                        <text x="240" y="236" text-anchor="middle" fill="#d5e0d6" font-family="Outfit, sans-serif" font-size="13" letter-spacing="1.5">HJ</text>
-                        <text x="390" y="236" text-anchor="middle" fill="#f0c36a" font-family="Outfit, sans-serif" font-size="13" letter-spacing="1.5">BTN</text>
-                        <rect x="336" y="252" width="108" height="30" rx="15" fill="none" stroke="#f0c36a"/>
-                        <text x="390" y="272" text-anchor="middle" fill="#f0c36a" font-family="Fraunces, Georgia, serif" font-size="15">their line</text>
+                        <path d="M352 158h72" stroke="rgba(246,241,230,0.7)" stroke-width="2" stroke-linecap="round"/>
+                        <text x="132" y="262" text-anchor="middle" fill="#d5e0d6" font-family="Outfit, sans-serif" font-size="13" letter-spacing="1.6">LOGGED</text>
+                        <text x="388" y="214" text-anchor="middle" fill="#f0c36a" font-family="Outfit, sans-serif" font-size="13" letter-spacing="1.6">SHARED</text>
                     </svg>
                 </div>
                 <div class="feature-copy">
-                    <p class="kicker">Real play</p>
-                    <h2>Their stack. Their seat. Their habit.</h2>
-                    <p>Different opponents, different positions. A recommendation you can put in the middle, already pulled out of the chart and into this table.</p>
+                    <p class="kicker">Keep the moment</p>
+                    <h2>The hand stays logged, ready to pass on</h2>
+                    <p>FishBite keeps the hand. You can memorize how it played, then share it and talk it through while the moment is still the one everyone wants to see.</p>
                 </div>
             </article>
 
             <article class="feature">
                 <div class="feature-art">
-                    <svg viewBox="0 0 480 300" aria-hidden="true">
-                        <g transform="rotate(-7 150 150)">
-                            <rect x="36" y="48" width="196" height="168" rx="16" fill="rgba(246,241,230,0.04)" stroke="rgba(246,241,230,0.55)" stroke-width="1.6"/>
-                            <ellipse cx="134" cy="128" rx="62" ry="26" fill="none" stroke="rgba(246,241,230,0.35)"/>
-                            <g fill="rgba(246,241,230,0.05)" stroke="#f0c36a" stroke-width="1.3">
-                                <rect x="96" y="104" width="24" height="34" rx="4"/>
-                                <rect x="122" y="100" width="24" height="34" rx="4"/>
-                                <rect x="148" y="104" width="24" height="34" rx="4"/>
-                            </g>
-                            <circle cx="134" cy="58" r="8" fill="#ff8c32"/>
-                            <path d="M134 66v14" stroke="#ff8c32" stroke-width="2"/>
+                    <svg viewBox="0 0 480 280" aria-hidden="true">
+                        <circle cx="108" cy="118" r="22" fill="none" stroke="#ff8c32" stroke-width="2"/>
+                        <path d="M74 168c10-22 58-22 68 0" fill="none" stroke="#ff8c32" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M138 86c22-18 48-8 52 10" fill="none" stroke="#f0c36a" stroke-width="1.6" stroke-linecap="round"/>
+                        <rect x="168" y="48" width="92" height="44" rx="16" fill="rgba(255,140,50,0.12)" stroke="#f0c36a"/>
+                        <text x="214" y="75" text-anchor="middle" fill="#f0c36a" font-family="Fraunces, Georgia, serif" font-size="16">a hunch</text>
+                        <path d="M250 150c28-8 40-8 62 0" fill="none" stroke="#f0c36a" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M300 142l14 8-14 8" fill="none" stroke="#f0c36a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <g font-family="Outfit, sans-serif" font-size="14">
+                            <rect x="318" y="78" width="132" height="36" rx="12" fill="rgba(246,241,230,0.04)" stroke="rgba(246,241,230,0.4)"/>
+                            <text x="384" y="101" text-anchor="middle" fill="#d5e0d6">why it felt live</text>
+                            <rect x="318" y="126" width="132" height="36" rx="12" fill="rgba(246,241,230,0.04)" stroke="rgba(246,241,230,0.4)"/>
+                            <text x="384" y="149" text-anchor="middle" fill="#d5e0d6">what it missed</text>
+                            <rect x="318" y="174" width="132" height="36" rx="12" fill="#ff8c32"/>
+                            <text x="384" y="197" text-anchor="middle" fill="#1a1208" font-weight="700">the read, clear</text>
                         </g>
-                        <path d="M250 132c36-28 62-28 96-6" fill="none" stroke="#f0c36a" stroke-width="2" stroke-linecap="round"/>
-                        <path d="M334 112l14 16-18 2" fill="none" stroke="#f0c36a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <g transform="rotate(6 390 156)">
-                            <rect x="332" y="78" width="112" height="96" rx="12" fill="rgba(255,140,50,0.08)" stroke="#ff8c32" stroke-width="1.6"/>
-                            <ellipse cx="388" cy="124" rx="34" ry="14" fill="none" stroke="rgba(246,241,230,0.4)"/>
-                            <rect x="360" y="108" width="16" height="24" rx="3" fill="none" stroke="#f0c36a"/>
-                            <rect x="380" y="104" width="16" height="24" rx="3" fill="none" stroke="#f0c36a"/>
-                            <rect x="400" y="108" width="16" height="24" rx="3" fill="none" stroke="#f0c36a"/>
-                        </g>
-                        <text x="150" y="268" text-anchor="middle" fill="#d5e0d6" font-family="Outfit, sans-serif" font-size="13" letter-spacing="1.6">MEMORIZE</text>
-                        <text x="390" y="268" text-anchor="middle" fill="#f0c36a" font-family="Outfit, sans-serif" font-size="13" letter-spacing="1.6">SHARE</text>
                     </svg>
                 </div>
                 <div class="feature-copy">
-                    <p class="kicker">The moment</p>
-                    <h2>The hand you still feel tomorrow</h2>
-                    <p>Keep the pot that made the room go quiet. Memorize how it played. Share it while everyone still wants to see that street again.</p>
+                    <p class="kicker">Verify poker thought</p>
+                    <h2>The instinct only you can feel</h2>
+                    <p>Some reads never travel. They live in the seat, hard for anyone else to catch. Talk the hand through with the AI, and let it break that feeling into something you can see.</p>
                 </div>
             </article>
-        </section>
-
-        <section class="close">
-            <h2>Sit down with the hand you actually have.</h2>
-            <button type="button" class="cta-button" data-download>Download</button>
         </section>
     </main>
 
