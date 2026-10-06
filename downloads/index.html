@@ -198,7 +198,7 @@
             </a>
 
             <!-- 3. Android China Only Button -->
-            <a class="download-button" data-china-apk>
+            <a class="download-button" data-china-apk href="https://downloads.fishbite.xyz/downloads/fishbite_china_v1.2.0.apk">
                 <!-- Full-Body Android Robot SVG Icon with eye masks -->
                 <svg viewBox="0 0 24 24">
                     <defs>
@@ -254,7 +254,8 @@
                     const response = await fetch('https://api.fishbite.xyz/app-update/version', { cache: 'no-store' });
                     if (!response.ok) throw new Error(`app update fetch failed: ${response.status}`);
                     const { branch_china_url } = await response.json();
-                    const downloadUrl = String(branch_china_url || '').trim();
+                    const downloadUrl = String(branch_china_url || '').trim()
+                        .replace(/^http:\/\/(downloads\.fishbite\.xyz)/i, 'https://$1');
                     if (!downloadUrl) throw new Error('app update missing branch_china_url field');
 
                     links.forEach((link) => {
